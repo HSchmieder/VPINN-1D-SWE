@@ -11,9 +11,8 @@ $\frac{\partial}{\partial t} hu + \frac{\partial}{\partial x} \left( hu^2 + \fra
 ### Domain and Parameters:  
 $x \in [-1000, 1000]$ &nbsp; ; &nbsp;  $t \in (0,600]$  
 gravitational acceleration: $g = 9.81$  
-friction coefficient: $c_D = 0.01$  
-bed: $b(x)=2*e^{-\frac{x}{2*200}}$
-### Initial and Boundary Conditions:
+bed: $b(x) = 2e^{-\frac{x^2}{2\*200^2}}$  
+
 **I.C.:** $h(x,t=0)=4-b(x)$  
 &nbsp; &nbsp; &nbsp;  &nbsp;  $hu(x,t=0)=0$  
 
