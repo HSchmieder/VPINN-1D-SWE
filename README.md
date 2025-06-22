@@ -38,10 +38,10 @@ $n\\_gauss$ defines the number of Gauss-Legendre quadrature nodes w.r.t. each di
 The total number of nodes inside the domain is $n\\_sub^2*n\\_gauss^2$.  
 ### Test-Functions
 For each subdomain spatio-temporal variabels are transformed into standard domain:  
-$x ; \longmapsto \\; \xi \in [-1,1] \quad ; \quad t \longmapsto \eta \in [-1,1]$  
+$x \\; \longmapsto \\; \xi \in [-1,1] \quad ; \quad t \\; \longmapsto \\; \eta \in [-1,1]$  
 
 In the standard domain the test function $l$ reads:  
-$\phi^{(l)} \left( \xi , \eta \right) = B \left( \xi \right) P^{(m)} \left( \xi \right) B \left( \eta \right) P^{(n)} \left( \eta \right)$  
+$\phi^{(l)} \left( \xi , \eta \right) = B \left( \xi \right) \\; P^{(m)} \left( \xi \right) \\; B \left( \eta \right) \\; P^{(n)} \left( \eta \right)$  
 Envelope functions ensuring compact support: $B \left( \xi \right) = 1-\xi^2 \quad ; \quad B \left( \eta \right) = 1-\eta^2$  
 $m^{th}/n^{th}$ order Legendre polynomial of first kind: $P^{(m)} \left( \xi \right) \quad ; \quad P^{(n)} \left( \eta \right)$  
 
