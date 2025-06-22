@@ -43,7 +43,7 @@ $x \; \longmapsto \; \xi \in [-1,1] \quad ; \quad t \; \longmapsto \eta \in [-1,
 
 In the standard domain the test function $l$ reads:  
 $\phi^{(l)} \left( \xi , \eta \right) = B \left( \xi \right) P^{(m)} \left( \xi \right) B \left( \eta \right) P^{(n)} \left( \eta \right)$  
-Envelope functions ensuring compact support: $B \left( \xi \right) = 1-\xi^2 \; ; \;  B \left( \eta \right) = 1-\eta^2$  
+Envelope functions ensuring compact support: $B \left( \xi \right) = 1-\xi^2 \, ; \,  B \left( \eta \right) = 1-\eta^2$  
 $m^{th}/n^{th}$ order Legendre polynomial of first kind: $P^{(m)} \left( \xi \right) \; ; \; P^{(n)} \left( \eta \right)$  
 
 $n\_test$ defines up to which order polynomials are considered for both dimensions. The variational loss is than evaluated for all $n\_test^2$ possible combinations of $P^{(m)} \left( \xi \right)$ and $P^{(n)} \left( \eta \right)$ in each subdomain.
