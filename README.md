@@ -27,7 +27,8 @@ $\mathcal{L}_{PDE_h,k,l} = \left| \sum_{i} \sum_{j} w_i w_j \left( \partial_t \p
 Where $x_i$ and $t_j$ are quadrature nodes for the domain $k$ w.r.t. space and time and $w_i$ and $w_j$ are the corresponding quadrature weights.  
 
 The complete loss regarding the conservation of mass computes to :  
-$\mathcal{L}_{PDE_h} = \frac{1}{n_{sub} \\; \* \\; n_{\phi}} \sum_{k=1}^{n_{sub}} \sum_{l=1}^{n_{\phi}} \mathcal{L}_{PDE_h,k,l}$ &nbsp;  &nbsp; *($\mathcal{L}_{PDE_{hu}}$ is computed accordingly)*  
+$\mathcal{L}_{PDE_h} = \frac{1}{n_{sub} \\; \* \\; n_{\phi}} \sum_{k=1}^{n_{sub}} \sum_{l=1}^{n_{\phi}} \mathcal{L}_{PDE_h,k,l}$  
+&nbsp;  &nbsp; *($\mathcal{L}_{PDE_{hu}}$ is computed accordingly)*  
 
 The final objective function is a weighted sum of all individual loss terms:  
 $\mathcal{L}_{tot} = \lambda_{PDE_{h}} \; \mathcal{L}_{PDE_{h}} + \lambda_{PDE_{hu}} \; \mathcal{L}_{PDE_{hu}}+ \lambda_{data} \; \mathcal{L}_{data}$
