@@ -23,7 +23,7 @@ bed: $b(x) = 2e^{-\frac{x^2}{2\*200^2}}$
 In contrast to traditional PINNs, VPINNs enforce the governing equations in their weak (variational) form over either the entire domain or (as we do here) a collection of subdomains rather than pointwise. In our implementation, we numerically approximate the weak-form integrals via Gauss–Legendre quadrature.
 
 The PDE loss for the conservation of mass for the subdomain $k$ and test function $\phi^{(l)}$ with compact support has the form:  
-$\mathcal{L}_{PDE_h,k,l} = \left| \sum_{i} \sum_{j} w_i w_j \left( \partial_t \phi_{i,j}^{(l)} h_{i,j} + \partial_x \phi_{i,j}^{(l)} hu_{i,j} \right) \right|^2$   
+$\mathcal{L}_{PDE_h,k,l} = \left| \sum_{i} \sum_{j} w_i w_j \left( \partial_t \phi_{i,j}^{(l)} \; h_{i,j} + \partial_x \phi_{i,j}^{(l)} \; hu_{i,j} \right) \right|^2$   
 Where $x_i$ and $t_j$ are quadrature nodes for the domain $k$ w.r.t. space and time and $w_i$ and $w_j$ are the corresponding quadrature weights.  
 
 The complete loss regarding the conservation of mass computes to :  
@@ -38,12 +38,12 @@ $n\\_gauss$ defines the number of Gauss-Legendre quadrature nodes w.r.t. each di
 The total number of nodes inside the domain is $n\\_sub^2*n\\_gauss^2$.  
 ### Test-Functions
 For each subdomain spatio-temporal variabels are transformed into standard domain:  
-$x \; \longmapsto \; \xi \in [-1,1] \quad ; \quad t \; \longmapsto \eta \in [-1,1]$  
+$x ; \longmapsto \\; \xi \in [-1,1] \quad ; \quad t \longmapsto \eta \in [-1,1]$  
 
 In the standard domain the test function $l$ reads:  
 $\phi^{(l)} \left( \xi , \eta \right) = B \left( \xi \right) P^{(m)} \left( \xi \right) B \left( \eta \right) P^{(n)} \left( \eta \right)$  
-Envelope functions ensuring compact support: $B \left( \xi \right) = 1-\xi^2$ &nbsp; ; &nbsp; $B \left( \eta \right) = 1-\eta^2$  
-$m^{th}/n^{th}$ order Legendre polynomial of first kind: $P^{(m)} \left( \xi \right)$ &nbsp; ; &nbsp; $P^{(n)} \left( \eta \right)$  
+Envelope functions ensuring compact support: $B \left( \xi \right) = 1-\xi^2 \quad ; \quad B \left( \eta \right) = 1-\eta^2$  
+$m^{th}/n^{th}$ order Legendre polynomial of first kind: $P^{(m)} \left( \xi \right) \quad ; \quad P^{(n)} \left( \eta \right)$  
 
 $n\\_test$ defines up to which order polynomials are considered for both dimensions. The variational loss is than evaluated for all $n\\_test^2$ possible combinations of $P^{(m)} \left( \xi \right)$ and $P^{(n)} \left( \eta \right)$ in each subdomain.
 
