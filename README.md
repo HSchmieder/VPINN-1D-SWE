@@ -46,7 +46,7 @@ $\phi^{(l)} \left( \xi , \eta \right) = B \left( \xi \right) P^{(m)} \left( \xi 
 Envelope functions ensuring compact support: $B \left( \xi \right) = 1-\xi^2$ &nbsp; ; &nbsp; $B \left( \eta \right) = 1-\eta^2$  
 $m^{th}/n^{th}$ order Legendre polynomial of first kind: $P^{(m)} \left( \xi \right)$ &nbsp; ; &nbsp; $P^{(n)} \left( \eta \right)$  
 
-$n\_test$ defines up to which order polynomials are considered for both dimensions. The variational loss is than evaluated for all $n\_test^2$ possible combinations of $P^{(m)} \left( \xi \right)$ and $P^{(n)} \left( \eta \right)$ in each subdomain.
+$n\_test$ defines up to which order polynomials are considered for both dimensions. The variational loss is than evaluated for all $n\\_test^2$ possible combinations of $P^{(m)} \left( \xi \right)$ and $P^{(n)} \left( \eta \right)$ in each subdomain.
 
 
 ## Observations
