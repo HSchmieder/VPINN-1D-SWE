@@ -34,9 +34,9 @@ The final objective function is a weighted sum of all individual loss terms:
 $\mathcal{L}_{tot} = \lambda_{PDE_{h}} \; \mathcal{L}_{PDE_{h}} + \lambda_{PDE_{hu}} \; \mathcal{L}_{PDE_{hu}}+ \lambda_{data} \; \mathcal{L}_{data}$
 
 ### Subdomains
-The code divides the computational domain into rectangular, non-overlapping, equal-sized subdomains. $n\_sub$ defines the number of subdomains in each dimension, resulting in a total number of $n\_sub^2$ subdomains with size $\frac{2000}{n\_sub}m \times \frac{600}{n\_sub}s$.  
-$n\_gauss$ defines the number of Gauss-Legendre quadrature nodes w.r.t. each dimension for each subdomain, resulting in a total of $n\_gauss^2$ nodes per subdomain.  
-The total number of nodes inside the domain is $n\_sub^2*n\_gauss^2$.  
+The code divides the computational domain into rectangular, non-overlapping, equal-sized subdomains. $n\\_sub$ defines the number of subdomains in each dimension, resulting in a total number of $n\\_sub^2$ subdomains with size $\frac{2000}{n\\_sub}m \times \frac{600}{n\\_sub}s$.  
+$n\\_gauss$ defines the number of Gauss-Legendre quadrature nodes w.r.t. each dimension for each subdomain, resulting in a total of $n\\_gauss^2$ nodes per subdomain.  
+The total number of nodes inside the domain is $n\\_sub^2*n\\_gauss^2$.  
 ### Test-Functions
 For each subdomain spatio-temporal variabels are transformed into standard domain:  
 $x \; \longmapsto \; \xi \in [-1,1] \quad ; \quad t \; \longmapsto \eta \in [-1,1]$  
@@ -46,7 +46,7 @@ $\phi^{(l)} \left( \xi , \eta \right) = B \left( \xi \right) P^{(m)} \left( \xi 
 Envelope functions ensuring compact support: $B \left( \xi \right) = 1-\xi^2$ &nbsp; ; &nbsp; $B \left( \eta \right) = 1-\eta^2$  
 $m^{th}/n^{th}$ order Legendre polynomial of first kind: $P^{(m)} \left( \xi \right)$ &nbsp; ; &nbsp; $P^{(n)} \left( \eta \right)$  
 
-$n\_test$ defines up to which order polynomials are considered for both dimensions. The variational loss is than evaluated for all $n\\_test^2$ possible combinations of $P^{(m)} \left( \xi \right)$ and $P^{(n)} \left( \eta \right)$ in each subdomain.
+$n\\_test$ defines up to which order polynomials are considered for both dimensions. The variational loss is than evaluated for all $n\\_test^2$ possible combinations of $P^{(m)} \left( \xi \right)$ and $P^{(n)} \left( \eta \right)$ in each subdomain.
 
 
 ## Observations
