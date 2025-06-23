@@ -23,10 +23,10 @@ bed: $b(x) = 2e^{-\frac{x^2}{2\*200^2}}$
 In contrast to traditional PINNs, VPINNs enforce the governing equations in their weak (variational) form over either the entire domain or (as we do here) a collection of subdomains rather than pointwise. In our implementation, we numerically approximate the weak-form integrals via Gauss–Legendre quadrature.
 
 The PDE loss for the conservation of mass for the subdomain $k$ and test function $\phi^{(l)}$ with compact support has the form:  
-$\mathcal{L}_{PDE} = \left| \\sum w_i w_j \right|^2$  
+$\mathcal{L}_{PDE} = \left| \\sum_i \\sum_j w_i w_j \right|^2$  
 
 The PDE loss for the conservation of mass for the subdomain $k$ and test function $\phi^{(l)}$ with compact support has the form:  
-$\mathcal{L}_{PDE_h,k,l} = \left| \sum_{i} \sum_{j} w_i w_j \left( \partial_t \phi_{i,j}^{(l)} \; h_{i,j} + \partial_x \phi_{i,j}^{(l)} \; hu_{i,j} \right) \right|^2$   
+$\mathcal{L}_{PDE_h,k,l} = \left| \\sum_{i} \\sum_{j} w_i w_j \left( \partial_t \phi_{i,j}^{(l)} \; h_{i,j} + \partial_x \phi_{i,j}^{(l)} \; hu_{i,j} \right) \right|^2$   
 Where $x_i$ and $t_j$ are quadrature nodes for the domain $k$ w.r.t. space and time and $w_i$ and $w_j$ are the corresponding quadrature weights.  
 
 The complete loss regarding the conservation of mass computes to :  
