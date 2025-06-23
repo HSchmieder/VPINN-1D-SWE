@@ -1,2 +1,5 @@
 __pycache__/
 *.py[cod]
+
+# README file that is not adapted to git
+README_notGit.md
