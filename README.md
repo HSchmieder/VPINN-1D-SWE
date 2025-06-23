@@ -26,7 +26,7 @@ The PDE loss for the conservation of mass for the subdomain $k$ and test functio
 $\mathcal{L}_{PDE\_{h}} = \left| \\sum_i \\sum_j w_i w_j \left( \partial_t \phi\_{i,j}^{(l)} \\; h\_{i,j} + \partial_x \phi\_{i,j}^{(l)} \\; hu\_{i,j} \right) \right|^2$  
 Where $x_i$ and $t_j$ are quadrature nodes for the domain $k$ w.r.t. space and time and $w_i$ and $w_j$ are the corresponding quadrature weights.  
 
-$\mathcal{L}\_{PDE\_{h}} = \frac{1}{n\_{sub}} \\sum\_{k=1}^{n\_{sub}}$  
+$\mathcal{L}\_{PDE\_{h}} = \frac{1}{n\_{sub} \* n\_{\phi}} \\sum\_{k=1}^{n\_{sub}}$  
 
 The complete loss regarding the conservation of mass computes to :  
 $\mathcal{L}_{PDE\_{h}} = \frac{1}{n_{sub} \\; * \; n_{\phi}} \\sum_{k=1}^{n_{sub}} \sum_{l=1}^{n_{\phi}} \mathcal{L}_{PDE_h,k,l}$ &nbsp;  &nbsp; *($\mathcal{L}_{PDE_{hu}}$ is computed accordingly)*  
