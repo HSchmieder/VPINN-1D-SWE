@@ -33,7 +33,7 @@ The final objective function is a weighted sum of all individual loss terms:
 $\mathcal{L}_{tot} = \lambda\_{data} \\; \mathcal{L}\_{data}$  
 
 The final objective function is a weighted sum of all individual loss terms:  
-$\mathcal{L}_{tot} = \lambda\_{PDE\_h} \\; \mathcal{L}_{PDE\_h} + \lambda\_{PDE\_{hu}} \\; \mathcal{L}_{PDE\_{hu}}+ \lambda\_{data} \\; \mathcal{L}_{data}$  
+$\mathcal{L}_{tot} = \lambda\_{PDE\_h} \\; \mathcal{L}\_{PDE\_h} + \lambda\_{PDE\_{hu}} \\; \mathcal{L}\_{PDE\_{hu}}+ \lambda\_{data} \\; \mathcal{L}\_{data}$  
 
 ### Subdomains
 The code divides the computational domain into rectangular, non-overlapping, equal-sized subdomains. $n\\_sub$ defines the number of subdomains in each dimension, resulting in a total number of $n\\_sub^2$ subdomains with size $\frac{2000}{n\\_sub}m \times \frac{600}{n\\_sub}s$.  
