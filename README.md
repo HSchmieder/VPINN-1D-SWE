@@ -50,7 +50,7 @@ $n\\_test$ defines up to which order polynomials are considered for both dimensi
 
 
 ## Observations
-Observations (as well as reference data for *nRMSE*) are taken from numerical simulation ([code](https://github.com/HSchmieder/1D-SWE_Godunov_Solver)). There are different number of probes [2,3,5,9] with fixed locations available (see figure). Furthermore it is possible to change the sampling frequency ( $1/f\geq 1s$ ) and corrupt the data by adding Gaussian noise. 
+Observations (as well as reference data for *nRMSE*) are taken from numerical simulation ([solver](https://github.com/HSchmieder/1D-SWE_Godunov_Solver)). There are different number of probes [2,3,5,9] with fixed locations available (see figure). Furthermore it is possible to change the sampling frequency ( $1/f\geq 1s$ ) and corrupt the data by adding Gaussian noise. 
 
 <figure>
   <img src="figures/probe_locations.png" alt="System diagram" width="600">
@@ -59,12 +59,12 @@ Observations (as well as reference data for *nRMSE*) are taken from numerical si
 ## Results (Example)
 ### Settings:
 **Network:** hidden layer: 5 ; neurons per layer: 200  
-**Training:** ADAM learning rate: 0.0005 ; Iterations: 5e4 ; weights = [1,1,1]  
+**Training:** ADAM learning rate: 0.0005 ; Iterations: 5e4 ; weights = [1,0.2,1]  
 **Observations:** number of probes: 5 ; sampling period ( $1/f$ ): 10s ; noise: 0  
-**PDE-Loss:** n_sub = 10 ; n_gauss = 21 ; n_test = 5
+**PDE-Loss:** n_sub = 9 ; n_gauss = 26 ; n_test = 7
 
 ### Performance:
-***nRMSE(h)* = 0.0140**  
-***nRMSE(u)* = 0.0253**
+**waterlevel: *nRMSE* = 0.0094**  
+**velocity: *nRMSE* = 0.0170**
 
-![Example](figures/res_example.gif)
+![Example](figures/VPINN_example.gif)
