@@ -64,7 +64,7 @@ Observations (as well as reference data for *nRMSE*) are taken from numerical si
 **PDE-Loss:** n_sub = 9 ; n_gauss = 26 ; n_test = 7
 
 ### Performance:
-**waterlevel: *nRMSE* = 0.0094**  
-**velocity: *nRMSE* = 0.0170**
+**waterlevel: *nRMSE* = 0.0159**  
+**velocity: *nRMSE* = 0.0156**
 
 ![Example](figures/VPINN_example.gif)
