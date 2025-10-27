@@ -21,22 +21,24 @@ bed: $b(x)=2*e^{-\frac{x^2}{2*200^2}}$
 &nbsp; &nbsp; &nbsp;  &nbsp;  $\partial_x h(x_R,t) = \partial_x hu(x_L,t) = \partial_x hu(x_R,t) = 0$
 
 ## VPINNs
-In contrast to traditional PINNs, VPINNs enforce the governing equations in their weak (variational) form over either the entire domain or (as we do here) a collection of subdomains rather than pointwise. In our implementation, we numerically approximate the weak-form integrals via Gauss–Legendre quadrature.
+In contrast to traditional PINNs, VPINNs enforce the governing equations in their weak (variational) form over either the entire domain or (as we do here) a collection of $n_D$ subdomains rather than pointwise. In our implementation, we numerically approximate the weak-form integrals via Gauss–Legendre quadrature.
 
 The PDE loss for the conservation of mass for the subdomain $k$ and test function $\phi^{(l)}$ with compact support has the form:  
 $\mathcal{L}_{PDE_h,k,l} = \left| - \sum_{i} \sum_{j} w_i w_j \left( \partial_t \phi_{i,j}^{(l)} \; h_{i,j} + \partial_x \phi_{i,j}^{(l)} \; hu_{i,j} \right) \right|^2$   
 Where $x_i$ and $t_j$ are quadrature nodes for the domain $k$ w.r.t. space and time and $w_i$ and $w_j$ are the corresponding quadrature weights.  
 
 The complete loss regarding the conservation of mass computes to :  
-$\mathcal{L}_{PDE_h} = \frac{1}{n_{sub} \; * \; n_{\phi}} \sum_{k=1}^{n_{sub}} \sum_{l=1}^{n_{\phi}} \mathcal{L}_{PDE_h,k,l}$ &nbsp;  &nbsp; *($\mathcal{L}_{PDE_{hu}}$ is computed accordingly)*  
+$\mathcal{L}_{PDE_h} = \frac{1}{n_{D} \; * \; n_{\phi}} \sum_{k=1}^{n_{D}} \sum_{l=1}^{n_{\phi}} \mathcal{L}_{PDE_h,k,l}$ 
+
+*(The momentum conservation loss $\mathcal{L}_{PDE_{hu}}$ is computed accordingly)*  
 
 The final objective function is a weighted sum of all individual loss terms:  
 $\mathcal{L}_{tot} = \lambda_{PDE_{h}} \; \mathcal{L}_{PDE_{h}} + \lambda_{PDE_{hu}} \; \mathcal{L}_{PDE_{hu}}+ \lambda_{data} \; \mathcal{L}_{data}$
 
 ### Subdomains
-The code divides the computational domain into rectangular, non-overlapping, equal-sized subdomains. $n\_sub$ defines the number of subdomains in each dimension, resulting in a total number of $n\_sub^2$ subdomains with size $\frac{2000}{n\_sub}[m] \times \frac{600}{n\_sub}[s]$.  
+The code divides the computational domain into rectangular, non-overlapping, equal-sized subdomains. $n\_sub$ defines the number of subdomains in each dimension, resulting in a total number of $n_D=n\_sub^2$ subdomains with size $\frac{2000}{n\_sub}[m] \times \frac{600}{n\_sub}[s]$.  
 $n\_gauss$ defines the number of Gauss-Legendre quadrature nodes w.r.t. each dimension for each subdomain, resulting in a total of $n\_gauss^2$ nodes per subdomain.  
-The total number of nodes inside the domain is $n\_sub^2*n\_gauss^2$.  
+The total number of nodes for evaluating PDE losses inside the domain is $n_{tot}=n\_sub^2*n\_gauss^2$.  
 ### Test-Functions
 For each subdomain spatio-temporal variabels are transformed into standard domain:  
 $x \; \longmapsto \; \xi \in [-1,1] \quad ; \quad t \; \longmapsto \eta \in [-1,1]$  
@@ -46,11 +48,11 @@ $\phi^{(l)} \left( \xi , \eta \right) = B \left( \xi \right) P^{(m)} \left( \xi 
 Envelope functions ensuring compact support: $B \left( \xi \right) = 1-\xi^2 \; ; \;  B \left( \eta \right) = 1-\eta^2$  
 $m^{th}/n^{th}$ order Legendre polynomial of first kind: $P^{(m)} \left( \xi \right) \; ; \; P^{(n)} \left( \eta \right)$  
 
-$n\_test$ defines up to which order polynomials are considered for both dimensions. The variational loss is than evaluated for all $n\_test^2$ possible combinations of $P^{(m)} \left( \xi \right)$ and $P^{(n)} \left( \eta \right)$ in each subdomain.
+$n\_test$ defines up to which degree polynomials are considered for both dimensions. The variational loss is than evaluated for all $n\_test^2$ possible combinations of $P^{(m)} \left( \xi \right)$ and $P^{(n)} \left( \eta \right)$ in each subdomain.
 
 
 ## Observations
-Observations (as well as reference data for *nRMSE*) are taken from numerical simulation ([solver](https://github.com/HSchmieder/1D-SWE_Godunov_Solver)). There are different number of probes [2,3,5,9] with fixed locations available (see figure). Furthermore it is possible to change the sampling frequency ( $1/f\geq 1s$ ) and corrupt the data by adding Gaussian noise. 
+Observations (as well as reference data for *nRMSE*) are taken from numerical simulation ([solver](https://github.com/HSchmieder/1D-SWE_Godunov_Solver)). There are different number of probes [2,3,5,9] with fixed locations available (see figure). Furthermore it is possible to change the sampling frequency (sample period  $T\_sample$ ) and corrupt the data by adding Gaussian noise. 
 
 <figure>
   <img src="figures/probe_locations.png" alt="System diagram" width="600">

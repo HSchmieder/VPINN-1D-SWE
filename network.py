@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 
+# fully-connected feedforward neural network
 class net(nn.Module):
     def __init__(self, n_in, n_l, n_n, n_out, activation):
         super(net,self).__init__()
